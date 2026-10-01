@@ -1,0 +1,119 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    height: 100%;
+    background-color: #f4f6f9;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/*TABLE*/
+.user-card {
+    border-radius: 12px;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.user-table {
+    width: 100%;
+    min-width: 500px;
+}
+
+.user-table thead th {
+    background: #3E3B3B !important;
+    color: white !important;
+}
+
+.user-table tbody tr td {
+    background: #FFFFFF;
+    color: black;
+}
+
+.user-table td, .user-table th {
+    border: none !important;
+    vertical-align: middle;
+}
+
+.user-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    color: white;
+    background: #2D2D2D;
+}
+
+.btn-add {
+    background: rgba(255, 255, 255, 0.20);
+    padding: 5px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background: #3B82F6;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-done {
+    background: #5F9EA0;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-delete {
+    background: #374151;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.breadcrumb-panel {
+    color: #5f6c80;
+    font-size: 0.9rem;
+    margin-bottom: 28px;
+    letter-spacing: 0.3px;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #0b1e33;
+    margin-bottom: 0.2rem;
+}
+
+/*RESPONSIVE*/
+@media (max-width: 480px) {
+    .user-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .btn-add {
+        width: 100%;
+        text-align: center;
+    }
+
+    .page-title { font-size: 1.2rem; }
+    .breadcrumb-panel { font-size: 0.8rem; }
+}

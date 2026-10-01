@@ -1,0 +1,337 @@
+/* ===== BOOKING PAGE ===== */
+.booking-page {
+    min-height: 100vh;
+    background: #1a1a1a;
+    padding: 40px 20px;
+}
+
+.booking-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+.booking-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 25px;
+}
+
+/* ===== LEFT COLUMN ===== */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ===== SERVICE SECTION ===== */
+.service-section,
+.barber-section {
+    background: #0f0f0f;
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.section-label {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* label = service card */
+.service-item {
+    background: #c0c0c0;
+    border-radius: 15px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    /* reset label */
+    margin: 0;
+    font-weight: normal;
+}
+
+/* sembunyikan radio di dalam label */
+.service-item input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.service-item:hover {
+    background: #d0d0d0;
+    transform: translateX(5px);
+}
+
+/* active = radio checked di dalam label */
+.service-item:has(input:checked) {
+    background: #fff;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+.service-item:has(input:checked)::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: #4ade80;
+}
+
+.service-item:has(input:checked) .service-number {
+    background: #4ade80;
+    color: #0f0f0f;
+}
+
+.service-item:has(input:checked) .service-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+.service-number {
+    width: 28px;
+    height: 28px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: all 0.3s;
+}
+
+.service-info { flex: 1; }
+
+.service-info h4 {
+    color: #1a1a1a;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.service-price {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #1a1a1a;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.service-arrow {
+    color: #1a1a1a;
+    font-size: 1.2rem;
+    opacity: 0.5;
+    transition: all 0.3s;
+}
+
+.service-item:hover .service-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+/* ===== BARBER SECTION ===== */
+.barber-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+/* label = barber card */
+.barber-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    aspect-ratio: 3/4;
+    display: block;
+    border: 3px solid transparent;
+    margin: 0;
+    font-weight: normal;
+}
+
+#foto_barber {
+    width: 100%;
+    height: 100%; 
+    object-fit:hidden;
+}
+
+/* sembunyikan radio di dalam label */
+.barber-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.barber-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.barber-card:has(input:checked) {
+    border-color: #4ade80;
+    box-shadow: 0 0 0 3px #4ade80;
+}
+
+.barber-card:has(input:checked) .barber-avatar {
+    background: #4ade80;
+    color: #0f0f0f;
+}
+
+.barber-avatar {
+    width: 100%;
+    height: 100%;
+    background: #2e2e2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    transition: all 0.3s;
+}
+
+.barber-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    padding: 20px 15px 15px;
+}
+
+.barber-name {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ===== RIGHT COLUMN ===== */
+.right-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section {
+    background: #0f0f0f;
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.form-label {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.schedule-label {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+}
+
+.schedule-input {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: border-color 0.3s;
+}
+
+.schedule-input:focus {
+    outline: none;
+    border-color: rgba(74,222,128,0.5);
+}
+
+.schedule-input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.schedule-input option {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+.confirm-btn {
+    width: 100%;
+    background: #4ade80;
+    border: none;
+    border-radius: 25px;
+    padding: 14px;
+    color: #0f0f0f;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.confirm-btn:hover {
+    background: #22c55e;
+    transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .booking-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .right-column {
+        order: -1;
+    }
+}
+
+@media (max-width: 576px) {
+    .barber-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

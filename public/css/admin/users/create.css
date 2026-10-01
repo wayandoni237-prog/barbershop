@@ -1,0 +1,63 @@
+        body {
+            background: #f5f5f5;
+        }
+
+        /* container utama */
+        .container-box {
+            background: linear-gradient(180deg, #1c1c1c, #151515);
+            padding: 40px;
+            border-radius: 10px;
+            width: 750px;
+            position: relative;
+        }
+
+        /* badge title */
+        .title-badge {
+            width: 15%;
+            margin-bottom: 3rem;
+            background: #2b2b2b;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* input style */
+        .custom-input {
+            background: #e9e9e9;
+            border: none;
+            height: 45px;
+            border-radius: 6px;
+        }
+
+        /* role dropdown */
+        .role-select {
+            width: 140px;
+        }
+
+        /* cancel button */
+        .btn-cancel {
+            background: #dc3545;
+            color: white;
+            font-weight: 600;
+            border: none;
+            height: 45px;
+        }
+
+        .btn-cancel:hover {
+            background: #bb2d3b;
+        }
+
+        /* save button */
+        .btn-save {
+            background: #a7b27a;
+            color: white;
+            font-weight: 600;
+            border: none;
+            height: 45px;
+        }
+
+        .btn-save:hover {
+            background: #8e9a63;
+        }

@@ -1,0 +1,220 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/*CHECKBOX HACK*/
+#sidebar-toggle { display: none; }
+
+/*OVERLAY*/
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 199;
+}
+
+/*SIDEBAR*/
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background: rgb(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 24px 20px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    flex-shrink: 0;
+}
+
+.sidebar-header h3 {
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.sidebar-header h3 i { font-size: 1.3rem; color: #e94560; }
+.sidebar-header h3 span { color: rgba(255,255,255,0.75); font-weight: 300; }
+
+.sidebar-nav {
+    flex: 1;
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;        
+    -ms-overflow-style: none;  
+}
+
+.sidebar-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: rgba(255,255,255,0.65);
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: 0 24px 24px 0;
+    margin-right: 16px;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.nav-item i { font-size: 1rem; width: 20px; text-align: center; flex-shrink: 0; color: #ffffff; }
+
+.nav-item:hover {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    transform: translateX(4px);
+}
+
+.nav-item:hover i { color: #e94560; }
+
+.nav-item.active {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border-left: 3px solid #e94560;
+    padding-left: 17px;
+}
+
+.nav-item.active i { color: #e94560; }
+
+.sidebar-logout {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    flex-shrink: 0;
+}
+
+.sidebar-logout .btn-logout {
+    width: 100%;
+    background: rgba(233,69,96,0.2);
+    color: #fff;
+    border: 1px solid rgba(233,69,96,0.5);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.sidebar-logout .btn-logout:hover {
+    background: #e94560;
+    color: #fff;
+    border-color: #e94560;
+}
+
+/*MAIN WRAPPER — pakai margin-left saja, tanpa width */
+.main-wrapper {
+    margin-left: 240px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*TOPBAR*/
+.topbar {
+    background: #fff;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+
+.topbar-left { display: flex; align-items: center; gap: 14px; }
+
+.btn-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: #1a1a2e;
+    cursor: pointer;
+    line-height: 1;
+    user-select: none;
+}
+
+.topbar-title { font-size: 1.1rem; font-weight: 700; color: #1a1a2e; }
+
+.topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.topbar-user .avatar {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* membuat container toaster melebar */
+.toaster-ui-container,
+.toast-container,
+[class*="toaster"] {
+  max-width: 420px !important;
+  width: max-content !important;
+}
+
+.page-content { flex: 1; padding: 28px; }
+
+/*SCROLLBAR*/
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f0f2f5; }
+::-webkit-scrollbar-thumb { background: #c5c9d6; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #a0a5b3; }
+
+/*RESPONSIVE*/
+@media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); }
+
+    #sidebar-toggle:checked ~ .sidebar-overlay { display: block; }
+    #sidebar-toggle:checked ~ .sidebar { transform: translateX(0); }
+
+    .main-wrapper { margin-left: 0; }
+
+    .btn-toggle { display: block; }
+
+    .page-content { padding: 16px; }
+}
